@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="person1" class="_02.constructor.injection.model.Person">
+		<constructor-arg name="name" value="ali"/> 
+		<constructor-arg name="surname" value="bey"/>
+		<constructor-arg name="age" value="24"/>
+	</bean>
+	
+	<bean id="person2" class="_02.constructor.injection.model.Person"
+		c:name="umut" c:surname="can" c:age="18">
+	</bean>
+	
+	<bean id="address1" class="_02.constructor.injection.model.Address">
+		<constructor-arg  value="Kocaeli"/> 
+		<constructor-arg  value="Gebze"/>
+	</bean>
+	
+	<bean id="person3" class="_02.constructor.injection.model.Person">
+		<constructor-arg name="name" value="atakan"/> 
+		<constructor-arg name="surname" value="turk"/>
+		<constructor-arg name="age" value="5"/>
+		<constructor-arg name="address" ref="address1"/>
+	</bean>
+	
+	<bean id="constructorConfuse1" class="_02.constructor.injection.model.ConstructorConfuse">
+		<constructor-arg  value="200"/> 
+	</bean>
+	
+	<bean id="constructorConfuse2" class="_02.constructor.injection.model.ConstructorConfuse">
+		<constructor-arg  type="int" value="20"/> 
+	</bean>
+	
+</beans>

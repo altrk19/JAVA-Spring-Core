@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="emp1" class="_01.setter.injection.model.Employee">
+		<property name="name" value="ahmet"/>
+		<property name="surname" value="yilmaz"/>
+		<property name="salary" value="5000"/>
+		<property name="age" value="25"/>
+	</bean>
+	
+	<bean id="emp2" class="_01.setter.injection.model.Employee">
+		<property name="name" value="ali"/>
+		<property name="surname" value="bey"/>
+		<property name="salary" value="7500"/>
+		<property name="age" value="24"/>
+	</bean>
+	
+	<bean id="emp3" class="_01.setter.injection.model.Employee" p:name="testName" p:surname="testSurname" p:salary="1500" p:age="15"/>
+	
+	<bean id="dept1" class="_01.setter.injection.model.Department">
+		<property name="deptName" value="IT"/>
+		<property name="location" value="HQ"/>
+	</bean>
+	
+	<bean id="emp4" class="_01.setter.injection.model.Employee">
+		<property name="name" value="umut"/>
+		<property name="surname" value="can"/>
+		<property name="salary" value="6000"/>
+		<property name="age" value="18"/>
+		<property name="department" ref="dept1"/>
+	</bean>
+</beans>
