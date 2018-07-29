@@ -1,0 +1,46 @@
+package _01.autowired.model;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+public class Employee {
+
+	private String name;
+	private String surname;
+
+	@Autowired                               //Autowired kullanýldýgýnda getter setter constructor'a gerek yoktur. Spring otomatik halleder
+	@Qualifier(value="address2")
+	private Address address;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", surname=" + surname + ", address=" + address + "]";
+	}
+	
+	
+
+}

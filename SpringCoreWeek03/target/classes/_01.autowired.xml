@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+ ">
+ 
+	<!-- bu annotation Spring e @Autowired , @Required  @Postconstuct gibi annotationlari aktif hale getir der!-->
+	<context:annotation-config/>
+	
+	<bean id="employee1" class="_01.autowired.model.Employee">
+		<property name="name" value="ali"/>
+		<property name="surname" value="bey"/>
+	</bean>
+	
+	<bean id="address1" class="_01.autowired.model.Address">
+		<property name="city" value="kocaeli"/>
+		<property name="country" value="turkey"/>
+	</bean>
+
+	<bean id="address2" class="_01.autowired.model.Address">
+		<property name="city" value="ankara"/>
+		<property name="country" value="turkey"/>
+	</bean>
+	
+</beans>
