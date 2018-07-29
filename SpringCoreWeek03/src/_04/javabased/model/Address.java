@@ -2,7 +2,7 @@ package _04.javabased.model;
 
 import org.springframework.stereotype.Component;
 
-@Component                           //Student'ta address bean'i tanýmlanmamýþsa Spring Containeer @Autowired address ile bu sýnýfa gelir ve null degeri atar.
+//@Component                           //Student'ta address bean'i tanýmlanmamýþsa Spring Containeer @Autowired address ile bu sýnýfa gelir ve null degeri atar.
 public class Address {
 
 	private String city;

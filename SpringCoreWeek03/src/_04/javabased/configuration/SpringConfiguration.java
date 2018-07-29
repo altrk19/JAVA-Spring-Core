@@ -36,13 +36,13 @@ public class SpringConfiguration {
 	
 	//metotlarý biz çagýrmýyoruz Spring kendi otomatik oalrak çagýrýyor.
 	
-	/*@Bean
-	public Address getAddress() {
+	@Bean
+	Address getAddress() {
 		Address address=new Address();
 		address.setCity("kocaeli");
 		address.setCountry("turkey");
 		return address;
-	}*/
+	}
 }
 //environment autowired edip dýþarýdan bir properties dosyasýný okuyabiliyoruz. veritabaný bilgileri properties dosyasýnda olabilir.
 //student.properties dosyasýný source folder altýna koyabiliriz.

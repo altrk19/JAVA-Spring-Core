@@ -20,6 +20,7 @@ public class TestStereotype {
 		person.setName("ali");
 		person.setSurname("bey");
 		personService.insertPerson(person);
+	
 	}
 
 }
