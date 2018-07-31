@@ -1,0 +1,1 @@
+eclipseLink 2.5.0
