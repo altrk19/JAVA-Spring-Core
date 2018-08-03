@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop.xsd 
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd 
+    ">
+
+	<!-- do not forget adding xmlns context! -->
+	<context:annotation-config/>
+	
+	<!-- 
+	Use @EnableAspectJAutoProxy  with context:annotation-config or 
+	<aop:aspectj-autoproxy/>
+	 -->
+	
+
+	<bean id="employeeService" class="_05.aspectj.annotation.service.EmployeeService" />
+
+	<bean id="auditServiceAspectId" class="_05.aspectj.annotation.service.AuditServiceAspect" />
+	
+	<!--  annotation'la yapılan ornegin xml ile yapılması.
+	<aop:config>
+		<aop:aspect id="myaspect" ref="auditServiceAspectId">
+
+			<aop:pointcut id="pointCutAfterId" expression="execution(* *.updateEmployee(..))" />
+			<aop:after method="logAfter" pointcut-ref="pointCutAfterId" />
+	
+			
+			<aop:pointcut id="pointCutAfterReturningId" expression="execution(* *.getEmployeeId(..))" />
+			<aop:after-returning method="logAfterReturning" returning="resultValue" pointcut-ref="pointCutAfterReturningId" />
+			
+			
+			<aop:pointcut id="pointCutAfterThrowingId" expression="execution(* *.deleteEmployee(..))" />
+			<aop:after-throwing method="logAfterThrowing" throwing="thrownException" pointcut-ref="pointCutAfterThrowingId"  />
+
+			
+			<aop:pointcut id="pointCutAround" expression="execution(* *.getAllEmployees(..))" />
+			<aop:around method="logAround" pointcut-ref="pointCutAround"  />
+		
+		</aop:aspect>
+	</aop:config>
+	-->
+</beans>

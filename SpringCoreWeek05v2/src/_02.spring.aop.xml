@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="logger" class="_02.spring.aop.withXml.service.LoggerWriter" />
+	<bean id="validator" class="_02.spring.aop.withXml.service.Validator" />
+	<bean id="beforeAdviceImpl" class="_02.spring.aop.withXml.service.MethodBeforeAdviceImpl" />
+	<bean id="afterReturningAdviceImpl" class="_02.spring.aop.withXml.service.AfterReturningAdviceImpl" />
+	<bean id="aroundAdviceImpl" class="_02.spring.aop.withXml.service.AroundAdviceImpl" />
+	<bean id="throwsAdviceImpl" class="_02.spring.aop.withXml.service.ThrowsAdviceImpl" />
+
+	<bean id="proxyBefore" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="logger"/>
+		<property name="interceptorNames">
+			<list>
+				<value>beforeAdviceImpl</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="proxyAfterReturning" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="logger"/>
+		<property name="interceptorNames">
+			<list>
+				<value>afterReturningAdviceImpl</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="proxyAround" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="logger"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>aroundAdviceImpl</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="proxyThrows" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="validator"/>
+		<property name="interceptorNames">
+			<list>
+				<value>throwsAdviceImpl</value>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>
